@@ -1,0 +1,13 @@
+<p>directive works!</p>
+<p>Assignment 2</p>
+<p>Que 2:use ngFor directive to display array element on html page also add two button plus and minus
+    On cliclk button respective operatio will happens
+</p>
+
+<div>
+    <ul>
+        <li *ngFor="let ele of arr">{{ele}}</li>
+    </ul>
+</div>
+<button (click)="addEle()">add</button>&nbsp;&nbsp;
+<button (click)="removeEle()" [disabled]="disableBtn">minus</button>
