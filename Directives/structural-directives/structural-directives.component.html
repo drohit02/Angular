@@ -1,0 +1,28 @@
+<p>structural-directives works!</p>
+<p>structural Directives start with * sign then ngIf,ngFor,ngSwitch</p>
+<p>Strutural is written in HTML page and in tag's attribute section</p>
+<h2>*ngIf Demo</h2>
+
+<p *ngIf="2%2!=0 then msg1; else msg2"></p>
+
+<ng-template #msg1>
+    Welcome user
+</ng-template>
+
+<ng-template #msg2>
+    welcome admin
+</ng-template>
+
+<h2>*ngFor Demo</h2>
+
+<div *ngFor="let ele of [10,20,30,40,50]">
+    Element is : {{ele}}
+</div>
+<div>
+    <ul>
+        <li *ngFor="let c of colors">{{c}}</li>
+    </ul>
+    <ol>
+        <li *ngFor="let fr of ['apple','banana','grapes','orange']">{{fr}}</li>
+    </ol>
+</div>
