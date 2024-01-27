@@ -1,0 +1,17 @@
+<p>two-way-binding works!</p>
+<p>Event Object: Example how Two way data binding is happen in angular using Event element-object</p>
+<form>
+    <label for="usr" >Enter the name : </label>
+    <input type="text" (input)="eventHandler($event)" id="usr">
+    
+    <p>Name is : {{username}}</p>
+    <p>Here we are use event which is  Built-in Element-object.To use event element $event is used </p>
+</form>
+<p>=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</p>
+<p>Two-way-binding using ngModel Directive</p>
+
+<form action="">
+    <label for="">Enter the Student Name : </label>
+    <input type="text" [(ngModel)]="twoWayBindingName" name="studName">
+    <p>Student name : {{twoWayBindingName}}</p>
+</form>

@@ -1,0 +1,9 @@
+<p>property-binding works!</p>
+<label for="interpolation">interpolation</label>
+<input type="text" id="interpolation" disabled="{{disableInput}}">
+
+<label for="Property Binding">Property Binding</label>
+<input type="text" id="Property Binding" [disabled]="disableInput">
+<button (click)="changeState()">Change State</button>
+
+<p>Property Binding : Syntax = " [] " -> [here HTML property]  ""</p>

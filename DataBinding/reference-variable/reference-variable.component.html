@@ -1,0 +1,11 @@
+<p>reference-variable works!</p>
+<p>Reference variable : This is nickname given ton html.Treat it same as Reference varaible in Java(not exactly but it is similar)</p>
+<p>Reference variable is define using ' # '</p>
+<form action="">
+    <label for="usrename">Reference variable : </label>
+    <!--myMsg will access all the attribute of the input tag where referrnce varibale is declared-->
+    <input type="text" id="username" #myMsg> <br>
+    <button (click)="handleMsg(myMsg.value)" type ="submit">Show Message</button>
+
+    
+</form>
