@@ -1,0 +1,32 @@
+<p>pipes works!</p>
+<div>
+    <b><p>String pipes</p></b>
+    <p>{{str}} : Without using Pipe</p>
+    <p>{{str | uppercase}} :String after using uppercase pipe</p>
+    <p>{{str | lowercase}} :String after using lowercase pipe</p>
+    <p>{{str | slice:0:5}} :String after using [slice:from index : to given index (slice:0:5)] param pipe</p>
+</div>
+
+<div>
+    <b><p>Number Pipe</p></b>
+    <p>1. Decimal Pipe</p>
+    <p>{{pi}} = Number Without pipe</p>
+    <p>{{pi | number:"0.1-2"}} = number after number pipe </p>
+    <p>2. Currency Pipe</p>
+    <p>{{newCurrency | currency:"USD"}} : Dollar</p>
+    <p>{{newCurrency | currency:"EUR"}} :Euro</p>
+    <p>3. Percentile Pipe</p>
+    <p>{{marks}} without currency pipe</p>
+    <p>{{marks | percent : "2.2-2"}} with currency pipe</p>
+</div>
+<div>
+    <b><p>Date Pipe</p></b>
+    <p>{{doj}} : Date without using Date Pipe</p>
+    <p>{{doj | date:'short'}} : short date format</p>
+    <p>{{doj | date:'medium'}} : medium date format</p>
+    <p>{{doj | date:'full'}} : full date format</p>
+    <p>{{doj | date:'shortDate'}} : shortDate format</p>
+    <p>{{doj | date:'mediumDate'}} : mediumDate format</p>
+    <p>{{doj | date:'longDate'}} :  longDate format</p>
+
+</div>
