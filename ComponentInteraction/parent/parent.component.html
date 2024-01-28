@@ -1,0 +1,10 @@
+<p>parent works!</p>
+<form>
+    <label for="data">Enter the Name:</label>&nbsp;
+    <input type="text" name="dt" id="data" #parentData>&nbsp;
+    <button type="submit" class="btn btn-primary" (click)="sendMsg(parentData.value)">Send</button>
+</form>
+
+<p><b>Msg from child : {{receivedVal}}</b></p>
+<app-child (emitterObj) = "childData($event)" [parentData]="data"></app-child>
+ 
