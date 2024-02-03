@@ -1,0 +1,83 @@
+<form class="m-2" #enquiry="ngForm" (ngSubmit)="enquiryForm(enquiry)">
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="firstName" class>Enter First Name </label>&nbsp;
+            <input type="text" name="fname" id="firstName" pattern="[a-zA-z]{3,30}" class="form-control"
+                #firstName="ngModel" ngModel required />
+            <div *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+                <div *ngIf="firstName.errors?.['required']">
+                    *This field is required
+                </div>
+                <div *ngIf="firstName.errors?.['pattern']">
+                    *Minimum 3 to Maximum 30 characters are allowed
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="lastName">Enter Last Name </label>
+            <input type="text" name="lname" id="lastName" #lastName="ngModel" ngModel required pattern="[a-zA-Z]{3,30}"
+                class="form-control" />
+            <div *ngIf="lastName.invalid && lastName.touched" class="text-danger">
+                <div *ngIf="lastName.errors?.['required']">*This field is Required</div>
+                <div *ngIf="lastName.errors?.['pattern']">
+                    *Minimum 3 and Maximum 30 Characters are allowed
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="emailAddress">Enter the Email</label>
+            <input type="text" name="email" id="emailAddress" #email="ngModel" ngModel required class="form-control"
+                pattern="[a-zA-Z]{12,100}" />
+            <div *ngIf="email.invalid && email.touched">
+                <div *ngIf="email.errors?.['required']" class="text-danger">
+                    *This field is required
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" #refGender="ngModel" ngModel class="form-control" required>
+                <option value="">Select Your Gender</option>
+                <option *ngFor="let gen of gender" [value]="gen">{{ gen }}</option>
+            </select>
+            <div *ngIf="refGender.invalid && refGender.touched" class="text-danger">
+                *Select the Gender
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="phone">Enter the Number</label>
+            <input class="form-control" type="number" id="phone" name="phone" #refNumber="ngModel"
+                pattern="[6-9]{1}[0-9]{9}" ngModel required />
+            <div *ngIf="refNumber.invalid && refNumber.touched">
+                <div *ngIf="refNumber.errors?.['required']" class="text-danger">
+                    *Number should contain 10 Digit
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="country">Enter Your Country</label>
+            <input class="form-control" type="text" name="country" id="country" #refCountry="ngModel" ngModel
+                required />
+            <div *ngIf="refCountry.invalid && refCountry.touched" class="text-danger">
+                *This field is required
+            </div>
+        </div>
+    </div>
+    <div class="row m-1">
+        <div class="form-check form-switch col-sm-6">
+            <input type="checkbox" class="form-check-input" name="term" id="terms" #refTerms="ngModel" ngModel
+                required />&nbsp;
+            <label for="terms" class="form-check-label">I will Accept all the Terms and Condition</label>
+            <div *ngIf="refTerms.invalid && refTerms.touched" class="text-danger">*Accept the terms to proceed</div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
