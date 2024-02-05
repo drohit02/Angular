@@ -1,0 +1,123 @@
+<form class="card bg-custom" [formGroup]="registrationData" (ngSubmit)="dataRegistered(registrationData.value)">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="fname" class="text-custom">Enter First Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="Enter first name" formControlName="firstName" />
+        <div *ngIf="registrationData.get('firstName').invalid && registrationData.get('firstName').touched">
+          <div *ngIf="registrationData.get('firstName').errors.required" class="text-danger">
+            *This field is required
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="lname" class="text-custom">Enter Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Enter last name" formControlName="lastName" />
+        <div *ngIf="
+            registrationData.get('lastName').invalid &&
+            registrationData.get('lastName').touched
+          ">
+          <div *ngIf="registrationData.get('lastName').errors.required" class="text-danger">
+            *This field is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="emailAddress" class="text-custom">Enter Your Email</label>
+        <input type="text" class="form-control" id="emailAddress" placeholder="Enter email" formControlName="email" />
+        <div *ngIf="
+            registrationData.get('email').invalid &&
+            registrationData.get('email').touched
+          ">
+          <div *ngIf="registrationData.get('email').errors.required" class="text-danger">
+            *This field is required
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="courses" class="text-custom">Select Course</label>
+        <select class="form-control" id="courses" formControlName="selectedCourse">
+          <option value="">Select Your Course</option>
+          <option [value]="course" *ngFor="let course of courses">
+            {{ course }}
+          </option>
+        </select>
+        <div *ngIf="
+            registrationData.get('selectedCourse').invalid &&
+            registrationData.get('selectedCourse').touched
+          ">
+          <div *ngIf="registrationData.get('selectedCourse').errors.required" class="text-danger">
+            *This field is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <input type="radio" name="mode" id="offlineMode" (click)="onSelectedMode('offline')" />
+        <label for="offlineMode" class="text-custom">Offline</label>&nbsp;
+
+        <input type="radio" name="mode" id="onlineMode" (click)="onSelectedMode('online')" />
+        <label for="onlineMode" class="text-custom">Online</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label *ngIf="registrationData.get('offlineMode')" class="text-custom">
+          Enter Offline Preferred Time <span class="text-danger">*</span></label>
+        <input *ngIf="registrationData.get('offlineMode')" type="text" class="form-control"
+          formControlName="offlineMode" placeholder="Enter offline Preferred time" />
+        <div *ngIf="
+            registrationData.get('offlineMode').invalid &&
+            registrationData.get('offlineMode').touched
+          ">
+          <div *ngIf="registrationData.get('offlineMode').errors.required" class="text-danger">
+            *This field is required
+          </div>
+        </div>
+
+        <label *ngIf="registrationData.get('onlineMode')" class="text-custom">
+          Enter Online Preferred Time <span class="text-danger">*</span>
+        </label>
+        <input *ngIf="registrationData.get('onlineMode')" type="text" class="form-control" formControlName="onlineMode"
+          placeholder="Enter online Preferred time" />
+        <div *ngIf="
+            registrationData.get('onlineMode').invalid &&
+            registrationData.get('onlineMode').touched
+          ">
+          <div *ngIf="registrationData.get('onlineMode').errors.required" class="text-danger">
+            *This field is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-check form-switch m-1">
+        <input class="form-check-input" type="checkbox" name="terms" id="myterm" formControlName="terms" />
+        <label class="form-check-label text-primary" for="myterm">
+          Accept the Terms to proceed</label>
+      </div>
+      <div *ngIf="registrationData.get('terms').invalid && registrationData.get('terms').touched">
+        <div *ngIf="registrationData.get('terms').hasError('required')" class="text-danger">
+          *Accept the terms and conditions to proceed
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <button class="btn btn-primary mt-2" [disabled]="registrationData.invalid">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
