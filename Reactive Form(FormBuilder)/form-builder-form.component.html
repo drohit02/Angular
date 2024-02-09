@@ -1,0 +1,101 @@
+<form class="card m-2" [formGroup]="registrationData" (ngSubmit)="formSubmitted()">
+    <div class="card-body bg-custom">
+        <h2 class="text-center">Registration Data</h2>
+
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <label for="fname">Enter First Name</label>
+                <input type="text" name="firstName" id="fname" formControlName="firstName" class="form-control" />
+                <div *ngIf="registrationData.get('firstName').invalid && registrationData.get('firstName').touched">
+                    <div *ngIf="registrationData.get('firstName').errors.required" class="text-danger">
+                        *This field is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="lname">Enter last Name</label>
+                <input type="text" name="lastName" id="lname" formControlName="lastName" class="form-control" />
+                <div *ngIf="registrationData.get('lastName').invalid && registrationData.get('lastName').touched">
+                    <div *ngIf="registrationData.get('lastName').errors.required" class="text-danger">
+                        *This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <label for="emailAddress">Enter Email Address</label>
+                <input type="email" name="email" id="emailAddress" formControlName="email" class="form-control">
+                <div *ngIf="registrationData.get('email').invalid && registrationData.get('email').touched">
+                    <div *ngIf="registrationData.get('email').errors.required" class="text-danger">
+                        *This field is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="Course">Select Course</label>
+                <select name="selectedCourse" id="Course" class="form-control" formControlName="selectedCourse">
+                    <option value="">Select Your Course</option>
+                    <option value="course" *ngFor="let course of courses">{{ course }}</option>
+                </select>
+                <div *ngIf="registrationData.get('selectedCourse').invalid && registrationData.get('selectedCourse').touched" >
+                    <div *ngIf="registrationData.get('selectedCourse').errors.required" class="text-danger">
+                        *This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <label for="genderOptions">Select Gender</label>
+                <select name="genders" id="genderOptions" formControlName="selectedGender" class="form-control">
+                    <option value="">Select Your Gender</option>
+                    <option value="gender" *ngFor="let gender of genders">{{ gender }}</option>
+                </select>
+                <div *ngIf="registrationData.get('selectedGender').invalid && registrationData.get('selectedGender').touched">
+                    <div *ngIf="registrationData.get('selectedGender').errors.required" class="text-danger">
+                        *This field is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="phone">Enter Mobile Number</label>
+                <input type="text" id="number" name="number" class="form-control" formControlName="number">
+                <div *ngIf="registrationData.get('number').invalid && registrationData.get('number').touched">
+                    <div *ngIf="registrationData.get('number').errors.required" class="text-danger">
+                        *This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row ms-1 mt-1 text-danger">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" formControlName="terms">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Accept the Terms and Condition</label>
+              </div>
+              <div *ngIf="registrationData.get('terms').invalid && registrationData.get('terms').touched">
+                <div *ngIf="registrationData.get('terms').errors.required">
+                    *Accpet the terms and Condition to proceed
+                </div>
+              </div>
+        </div>
+        
+        <div class="row mt-1">
+            <div>
+                <button type="submit" class="btn btn-primary" [disabled]="registrationData.invalid">Submit</button>
+            </div>
+        </div>
+    
+    </div>
+    </form>
