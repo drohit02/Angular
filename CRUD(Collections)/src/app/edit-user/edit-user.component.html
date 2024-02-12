@@ -1,0 +1,18 @@
+<form #edituser="ngForm" (ngSubmit)="editUser(edituser.value)">
+    <label for="user">enter updated username : </label>
+    <input type="text" name="username" id="user" [ngModel]="userData?.username" required>
+
+    <label for="pass">enter updated password : </label>
+    <input type="text" name="password" id="pass" [ngModel]="userData?.password" required>
+
+    <label for="adrs">enter updated address : </label>
+    <select name="address" id="adrs" [ngModel]="userData?.address" required>
+        <option value="">Select your city</option>
+        <option [value]="adrs" *ngFor="let adrs of address">{{adrs}}</option>
+    </select>
+
+    <button type="submit">Update</button>
+
+
+
+</form>

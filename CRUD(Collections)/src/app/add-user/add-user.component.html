@@ -1,0 +1,15 @@
+<form #adduser="ngForm" (ngSubmit)="addUser(adduser.value)">
+    <label for="user">Enter username : </label>
+    <input type="text" name="username" id="user" ngModel required>&nbsp;
+
+    <label for="pass">Enter password : </label>
+    <input type="text" name="password" id="pass" ngModel required>&nbsp;
+
+    <label for="adrs">Select address : </label>
+    <select name="address" id="adrs" ngModel required>
+        <option value="">Select address</option>
+        <option [value]="adrs" *ngFor="let adrs of address">{{adrs}}</option>
+    </select>&nbsp;
+
+    <button type="submit">Add</button>
+</form>

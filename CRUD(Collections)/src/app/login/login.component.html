@@ -1,0 +1,12 @@
+<form #loginform="ngForm" (ngSubmit)="login(loginform.value)">
+    <label for="user">Enter username : </label>
+    <input type="text" name="username"ngModel required>&nbsp;
+
+    <label for="password">Enter Password : </label>
+    <input type="text" name="password" ngModel required="">&nbsp;
+
+    <button type="submit">Login</button>
+
+
+
+</form>

@@ -1,0 +1,24 @@
+<div>
+    <button routerLink="/addUser">Add User</button>
+</div>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>username</th>
+        <th>password</th>
+        <th>address</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userData">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.address}}</td>
+            <td>
+                <button (click)="deleteUser(user.id)">Delete</button>&nbsp;
+                <button [routerLink]="['/edituser',user.id]">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
